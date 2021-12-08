@@ -1,0 +1,140 @@
+devnello:Alesis_1602
+
+pip install -r requirements.txt --upgrade
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+admin
+mar...
+
+django-admin startproject <name>
+
+python manage.py startapp <name>
+
+python manage.py startapp challenges
+
+#Generate requirements.txt
+pip3 freeze > requirements.txt
+
+
+mysql:https://medium.com/@a01207543/django-conecta-tu-proyecto-con-la-base-de-datos-mysql-2d329c73192a
+
+
+link:
+git     ->  https://academind.com/tutorials/git-the-basics
+urls    ->  https://docs.djangoproject.com/en/3.1/topics/http/urls/#path-converters
+python  ->  https://www.python.org/dev/peps/pep-0008/
+
+
+Django template:
+https://docs.djangoproject.com/en/3.2/topics/templates/
+https://docs.djangoproject.com/en/3.2/ref/templates/
+https://docs.djangoproject.com/en/3.2/ref/templates/builtins/
+
+Code snapshot repository: https://github.com/academind/django-practical-guide-course-code
+For this section, the branches starting with "urls-views-..." hold the code snapshots for this course module.
+For example: https://github.com/academind/django-practical-guide-course-code/tree/urls-views-01-adding-a-first-url-and-view
+Module slides can be found in this branch: https://github.com/academind/django-practical-guide-course-code/tree/urls-views-zz-extra-files
+
+
+MIGRACIONES
+python manage.py makemigrations
+python manage.py migrate
+
+
+INSERT
+from challenges.models import Book
+r = Book(title='Title 1',rating=5,author='Nostradamus', is_bestselling=0)
+r.save()
+
+UPDATE
+r = Book.objects.all()[0] # 0 es el numero de registro
+r.title
+'Title 1'
+
+r.author = 'J.K. rolling'
+r.is_bestselling = True
+r.save()
+
+DELETE
+r.delete()
+
+
+CREATE instead SAVE
+Book.objects.create(title='Title 1',rating=2,author='Pinco',is_bestselling=False)
+Inserta directamente sin crear la instancia del objecto
+
+
+Query Filtering
+
+
+
+posts = [
+    {
+        "slug": "hike-in-the-mountains",
+        "image": "mountains.jpg",
+        "author": "Maximilian",
+        "date": date(2021, 7, 21),
+        "title": "Mountain Hiking",
+        "excerpt": "There's nothing like the views you get when hiking in the mountains! And I wasn't even prepared for what happened whilst I was enjoying the view!",
+        "content": """
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+        """
+    },
+    {
+        "slug": "programming-is-fun",
+        "image": "coding.jpg",
+        "author": "Maximilian",
+        "date": date(2022, 3, 10),
+        "title": "Programming Is Great!",
+        "excerpt": "Did you ever spend hours searching that one error in your code? Yep - that's what happened to me yesterday...",
+        "content": """
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+        """
+    },
+    {
+        "slug": "into-the-woods",
+        "image": "woods.jpg",
+        "author": "Maximilian",
+        "date": date(2020, 8, 5),
+        "title": "Nature At Its Best",
+        "excerpt": "Nature is amazing! The amount of inspiration I get when walking in nature is incredible!",
+        "content": """
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
+          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+        """
+    }
+]
